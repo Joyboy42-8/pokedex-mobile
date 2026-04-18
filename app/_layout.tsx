@@ -1,24 +1,30 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { Stack, useLocalSearchParams } from "expo-router";
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+// SplashScreen.preventAutoHideAsync()
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-
+  const params = useLocalSearchParams()
+  
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
-  );
+    <Stack
+      screenOptions={{
+        header: () => "Hello"
+      }}
+    >
+      <Stack.Screen name="index" options={{ 
+          title: "Home" 
+        }} 
+      />
+      <Stack.Screen name="details" options={{ 
+          title: params?.name as string, 
+          headerBackButtonDisplayMode: "minimal",
+          presentation: "formSheet", //modal
+          sheetAllowedDetents: [0.3, 0.9],
+          sheetGrabberVisible: true,
+          sheetCornerRadius: 30,
+          headerShown: false
+        }} 
+      />
+    </Stack>
+  )
 }

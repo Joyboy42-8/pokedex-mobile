@@ -1,13 +1,14 @@
 {
   "expo": {
-    "name": "pokedex",
-    "slug": "pokedex",
+    "name": "Pokedex",
+    "slug": "Pokedex-app-crafted-with-PokeAPI",
+    "owner": "JOYBOY",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "pokedex",
     "userInterfaceStyle": "automatic",
-    "newArchEnabled": true,
+    // "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
     },
@@ -18,7 +19,7 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "edgeToEdgeEnabled": true,
+      // "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
     "web": {
@@ -39,6 +40,13 @@
           }
         }
       ]
+      //, [
+      //   "expo-font",
+      //   {
+      //     "fonts": ["./assets/fonts/JetBrains_Mono/static/JetBrainsMono-Medium.ttf"]
+      //   }
+      // ]
+
     ],
     "experiments": {
       "typedRoutes": true,
